@@ -2,13 +2,13 @@
 
 int main(){
 
-	int a, b;
+    int a, b;
 
-	printf("Digite a\n" );
-    scanf("%d",&a);
+    printf("Digite a\n");
+    scanf("%d", &a);
 
-	printf("Digite b\n" );
-    scanf("%d",&b);
+    printf("Digite b\n");
+    scanf("%d", &b);
 
     int c;
 
@@ -16,7 +16,7 @@ int main(){
     a = b;
     b = c;
 
-    printf("a = %d, b = %d\n\n", a, b); 
+    printf("a = %d, b = %d\n\n", a, b);
 
-	return 0;
+    return 0;
 }
