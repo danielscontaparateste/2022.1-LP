@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define TAM 10
+#define TAM 5
 #define MI 10
 #define RG 100
 
@@ -11,6 +11,7 @@
 void preencherVetor(int *, int, int, int);
 void ordenarVetor(int *, int);
 void imprimirVetor(int *, int);
+void inverterVetor(int *, int);
 
 int main(){
     int v[TAM];
@@ -22,9 +23,13 @@ int main(){
 
     // Processamento 
     ordenarVetor(v, TAM);
-
+    
     // Saída
     puts("Vetor ordenado: ");
+    imprimirVetor(v, TAM);
+
+    puts("Vetor ordenado - reverso");
+    inverterVetor(v, TAM);
     imprimirVetor(v, TAM);
     
     return 0;
@@ -47,6 +52,15 @@ void ordenarVetor(int *p, int t){
                 *(p+j) = a;
             }
         }
+    }
+}
+
+void inverterVetor(int *p, int t){
+    int a;
+    for (int k=0; k<t/2; k++){
+        a = *(p+t-1 - k);
+        *(p+t-1 - k) = *(p+k);
+        *(p+k) = a;
     }
 }
 
