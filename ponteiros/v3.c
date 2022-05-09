@@ -3,14 +3,14 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define TAM 25
+#define TAM 10
 #define MI 10
 #define RG 100
 
 //Prototipos
-void preencherVetor(int *p, int t, int ini, int q);
-void ordenarVetor(int *p, int t);
-void imprimirVetor(int *p, int t);
+void preencherVetor(int *, int, int, int);
+void ordenarVetor(int *, int);
+void imprimirVetor(int *, int);
 
 int main(){
     int v[TAM];
