@@ -9,16 +9,25 @@ void preencherVetor(int *, int, int, int);
 void imprimirMatriz(int *, int, int);
 void somatorioDiagonalPrincipal(int *, int, int *);
 
-int main(){
+int main(int argc, char *argv[]){
     int lin, col, *pv = NULL;
     float m;
+
+    if (argc!=3){
+        printf("Uso: \n\t%s qtdLin qtdCol\n\n",argv[0]);
+        exit(1);
+    }
+
+    lin = atoi(argv[1]);
+    col = atoi(argv[2]);
     
     // Alocação dinâmica de memória
-    puts("Entre com a qtd de linhas da matriz: ");
-    scanf("%d",&lin);
-    puts("Entre com a qtd de colunas da matriz: ");
-    scanf("%d",&col);
     pv = malloc(lin * col * sizeof(int));
+
+    if (!pv){
+        puts("Não foi possível alocar memória ");
+        exit(2);
+    }
 
     // Coleta de dados
     preencherVetor(pv, lin*col, INI, MX);
