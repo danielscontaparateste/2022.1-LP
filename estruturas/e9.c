@@ -13,7 +13,7 @@ struct UF{
 struct Cidade{
     char codigo[3];
     char descricao[50];
-    struct UF uf;
+    struct UF *pUf;
 };
 
 void imprimirDadosCidade(struct Cidade *);
@@ -31,7 +31,7 @@ int main(){
 
     strcpy(pCid->codigo,"CA");
     strcpy(pCid->descricao,"Caucaia");
-    pCid->uf = *pUf;
+    pCid->pUf = pUf;
 
     imprimirDadosCidade(pCid);
 
@@ -39,7 +39,8 @@ int main(){
 }
 
 void imprimirDadosCidade(struct Cidade *p){
-    printf("%s está localizado em %s (%s)\n",p->descricao,p->uf.descricao,p->uf.codigo);
+    printf("%s está localizado em %s (%s)\n",
+            p->descricao,p->pUf->descricao,p->pUf->codigo);
 }
 
 
