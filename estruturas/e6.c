@@ -17,12 +17,12 @@ int main(){
 
     srand(time(NULL));
 
-    struct Alunos aluno1;
+    // struct Alunos aluno1;
     struct Alunos *p;
 
-    p = &aluno1;
+    p = malloc(sizeof(struct Alunos));
 
-    (*p).quantNotas = 5;
+    (*p).quantNotas = 2;
     p->pNotas = malloc(p->quantNotas * sizeof(float));
 
     for (int k=0; k<p->quantNotas; k++){
@@ -92,7 +92,7 @@ int main(){
 
 // by Augusto Ribeiro.
 float random_float() {
-  return ( ( (float)rand() ) / (float)RAND_MAX ) * 100;
+  return ( ( (float)rand() ) / (float)RAND_MAX ) * 10;
 }
 
 
