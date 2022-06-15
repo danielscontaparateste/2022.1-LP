@@ -12,58 +12,73 @@ float random_float();
 // float media2(struct Alunos);
 
 int main(){
-    struct Alunos *pAln;
-    int qtdAlunos;
+    // struct Alunos *pAln;
+    // int qtdAlunos;
 
-    puts("Digite a qtd de alunos da sala: ");
-    scanf("%d",&qtdAlunos);
+    srand(time(NULL));
 
-    pAln = (struct Alunos *) malloc(qtdAlunos * sizeof(struct Alunos));
+    struct Alunos aluno1;
+    struct Alunos *p;
 
-    // ===================
-    for (int k=0; k<qtdAlunos; k++){
+    p = &aluno1;
 
-        printf("===\nAluno %d\n",k+1);
-        
-        puts("Quantidade de notas: ");
-        scanf("%d",&pAln[k].quantNotas);
+    (*p).quantNotas = 5;
+    p->pNotas = malloc(p->quantNotas * sizeof(float));
 
-        pAln[k].pNotas = (float *) malloc(pAln[k].quantNotas * sizeof(float));
-
-        for (int j=0; j<pAln[k].quantNotas; j++){
-            pAln[k].pNotas[j] = random_float();
-            printf("Nota %d: %.2f\n",j,pAln[k].pNotas[j]);
-
-        }
-
-        
+    for (int k=0; k<p->quantNotas; k++){
+        p->pNotas[k] = random_float();
+        printf("Nota %d: %.2f\n",k,p->pNotas[k]);
     }
 
-    // ====================
-    // a1.media = (a1.n1 + a1.n2)/2;
-    // a2.media = (a2.n1 + a2.n2)/2;
+    // puts("Digite a qtd de alunos da sala: ");
+    // scanf("%d",&qtdAlunos);
 
-    // a1.media = media1(a1.n1, a1.n2);
-    // a2.media = media1(a2.n1, a2.n2);
+    // pAln = (struct Alunos *) malloc(qtdAlunos * sizeof(struct Alunos));
 
-    // puts("Usando a funcao media2");
-    // a1.media = media2(a1);
-    // a2.media = media2(a2);
+    // // ===================
+    // for (int k=0; k<qtdAlunos; k++){
 
-    // puts("Usando a funcao media3");
-    // a1 = media3(a1);
-    // a2 = media3(a2);
+    //     printf("===\nAluno %d\n",k+1);
+        
+    //     puts("Quantidade de notas: ");
+    //     scanf("%d",&pAln[k].quantNotas);
 
-    // for (int k=0; k<TAM; k++){
-    //     aln[k].media = media2(aln[k]);
+    //     pAln[k].pNotas = (float *) malloc(pAln[k].quantNotas * sizeof(float));
+
+    //     for (int j=0; j<pAln[k].quantNotas; j++){
+    //         pAln[k].pNotas[j] = random_float();
+    //         printf("Nota %d: %.2f\n",j,pAln[k].pNotas[j]);
+
+    //     }
+
+        
     // }
+
+    // // ====================
+    // // a1.media = (a1.n1 + a1.n2)/2;
+    // // a2.media = (a2.n1 + a2.n2)/2;
+
+    // // a1.media = media1(a1.n1, a1.n2);
+    // // a2.media = media1(a2.n1, a2.n2);
+
+    // // puts("Usando a funcao media2");
+    // // a1.media = media2(a1);
+    // // a2.media = media2(a2);
+
+    // // puts("Usando a funcao media3");
+    // // a1 = media3(a1);
+    // // a2 = media3(a2);
+
+    // // for (int k=0; k<TAM; k++){
+    // //     aln[k].media = media2(aln[k]);
+    // // }
     
    
-    // // ===================
-    // for (int k=0; k<TAM; k++){
-    //     printf("===\nAluno %d\n",k+1);
-    //     printf("Media: %.2f\n",aln[k].media);
-    // }
+    // // // ===================
+    // // for (int k=0; k<TAM; k++){
+    // //     printf("===\nAluno %d\n",k+1);
+    // //     printf("Media: %.2f\n",aln[k].media);
+    // // }
 
     return 0;
 }
@@ -77,7 +92,7 @@ int main(){
 
 // by Augusto Ribeiro.
 float random_float() {
-  return ( ( (float)rand() ) / (float)RAND_MAX ) * 10;
+  return ( ( (float)rand() ) / (float)RAND_MAX ) * 100;
 }
 
 
