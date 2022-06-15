@@ -2,9 +2,6 @@
 #include <stdlib.h>
 #include <time.h>
 
-
-#define TAM 5
-
 struct Alunos{
     float *pNotas;
     int quantNotas;
@@ -14,23 +11,28 @@ struct Alunos{
 float random_float();
 // float media2(struct Alunos);
 
-
 int main(){
-    struct Alunos aln[TAM];
+    struct Alunos *pAln;
+    int qtdAlunos;
+
+    puts("Digite a qtd de alunos da sala: ");
+    scanf("%d",&qtdAlunos);
+
+    pAln = (struct Alunos *) malloc(qtdAlunos * sizeof(struct Alunos));
 
     // ===================
-    for (int k=0; k<TAM; k++){
+    for (int k=0; k<qtdAlunos; k++){
 
         printf("===\nAluno %d\n",k+1);
         
         puts("Quantidade de notas: ");
-        scanf("%d",&aln[k].quantNotas);
+        scanf("%d",&pAln[k].quantNotas);
 
-        aln[k].pNotas = (float *) malloc(aln[k].quantNotas * sizeof(float));
+        pAln[k].pNotas = (float *) malloc(pAln[k].quantNotas * sizeof(float));
 
-        for (int j=0; j<aln[k].quantNotas; j++){
-            aln[k].pNotas[j] = random_float();
-            printf("Nota %d: %.2f\n",j,aln[k].pNotas[j]);
+        for (int j=0; j<pAln[k].quantNotas; j++){
+            pAln[k].pNotas[j] = random_float();
+            printf("Nota %d: %.2f\n",j,pAln[k].pNotas[j]);
 
         }
 
